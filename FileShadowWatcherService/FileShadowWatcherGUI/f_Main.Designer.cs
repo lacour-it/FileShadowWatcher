@@ -30,11 +30,11 @@
         {
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelMain = new System.Windows.Forms.Panel();
             this.toolStripTextBoxBackupPath = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripMenuItemBackupPath = new System.Windows.Forms.ToolStripMenuItem();
             this.testVSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testInitializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelMain = new System.Windows.Forms.Panel();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,16 +57,8 @@
             this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 23);
             this.startToolStripMenuItem.Text = "Start";
             // 
-            // panelMain
-            // 
-            this.panelMain.Location = new System.Drawing.Point(88, 36);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(610, 481);
-            this.panelMain.TabIndex = 1;
-            // 
             // toolStripTextBoxBackupPath
             // 
-            this.toolStripTextBoxBackupPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxBackupPath.Name = "toolStripTextBoxBackupPath";
             this.toolStripTextBoxBackupPath.Size = new System.Drawing.Size(100, 23);
             // 
@@ -82,7 +74,7 @@
             this.testVSSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testInitializeToolStripMenuItem});
             this.testVSSToolStripMenuItem.Name = "testVSSToolStripMenuItem";
-            this.testVSSToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
+            this.testVSSToolStripMenuItem.Size = new System.Drawing.Size(62, 23);
             this.testVSSToolStripMenuItem.Text = "Test VSS";
             // 
             // testInitializeToolStripMenuItem
@@ -91,6 +83,13 @@
             this.testInitializeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.testInitializeToolStripMenuItem.Text = "Test Initialize";
             this.testInitializeToolStripMenuItem.Click += new System.EventHandler(this.testInitializeToolStripMenuItem_Click);
+            // 
+            // panelMain
+            // 
+            this.panelMain.Location = new System.Drawing.Point(88, 36);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(610, 481);
+            this.panelMain.TabIndex = 1;
             // 
             // f_Main
             // 

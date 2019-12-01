@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionList.cs" />
     <Compile Include="Snapshot.cs" />
     <Compile Include="SnapshotFactory.cs" />
     <Compile Include="EventExecutable.cs" />

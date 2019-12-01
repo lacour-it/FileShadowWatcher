@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Diagnostics;
 
 namespace FileShadowWatcherShared
 {
@@ -13,7 +14,7 @@ namespace FileShadowWatcherShared
         public FileSystemWatcher Watcher { get; set; }
         public string GUID { get; set; }
         public bool Listening { get; set; }
-        public SnapshotFactory snapshotFactory { get; set; }
+        //public SnapshotFactory snapshotFactory { get; set; }
 
         private bool InitInstance()
         {
@@ -64,7 +65,7 @@ namespace FileShadowWatcherShared
         {
             Options = option;
             GUID = option.FolderGUID;
-            snapshotFactory = new SnapshotFactory(backupPath);
+            //snapshotFactory = new SnapshotFactory(backupPath);
             return InitInstance();
         }
 
@@ -91,7 +92,7 @@ namespace FileShadowWatcherShared
             WatcherChangeTypes wct = e.ChangeType;
             slLogger.WriteLogLine(wct.ToString() + " Path: " + e.FullPath);
             
-            snapshotFactory.BackupFromShadow(e.FullPath);
+            //snapshotFactory.BackupFromShadow(e.FullPath);
         }
         private void OnRenamed(object source, RenamedEventArgs e)
         {
