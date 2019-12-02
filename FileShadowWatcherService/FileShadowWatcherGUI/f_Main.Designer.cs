@@ -34,9 +34,13 @@
             this.toolStripMenuItemBackupPath = new System.Windows.Forms.ToolStripMenuItem();
             this.testVSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testInitializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelMain = new System.Windows.Forms.Panel();
             this.testPowerForensicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fileReToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allFileRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletedFileRecordsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletedFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.restoreFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,7 +66,6 @@
             // 
             // toolStripTextBoxBackupPath
             // 
-            this.toolStripTextBoxBackupPath.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.toolStripTextBoxBackupPath.Name = "toolStripTextBoxBackupPath";
             this.toolStripTextBoxBackupPath.Size = new System.Drawing.Size(100, 23);
             // 
@@ -78,29 +81,26 @@
             this.testVSSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.testInitializeToolStripMenuItem});
             this.testVSSToolStripMenuItem.Name = "testVSSToolStripMenuItem";
-            this.testVSSToolStripMenuItem.Size = new System.Drawing.Size(61, 23);
+            this.testVSSToolStripMenuItem.Size = new System.Drawing.Size(62, 23);
             this.testVSSToolStripMenuItem.Text = "Test VSS";
             // 
             // testInitializeToolStripMenuItem
             // 
             this.testInitializeToolStripMenuItem.Name = "testInitializeToolStripMenuItem";
-            this.testInitializeToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.testInitializeToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.testInitializeToolStripMenuItem.Text = "Test Initialize";
             this.testInitializeToolStripMenuItem.Click += new System.EventHandler(this.testInitializeToolStripMenuItem_Click);
-            // 
-            // panelMain
-            // 
-            this.panelMain.Location = new System.Drawing.Point(88, 36);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(610, 481);
-            this.panelMain.TabIndex = 1;
             // 
             // testPowerForensicsToolStripMenuItem
             // 
             this.testPowerForensicsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileReToolStripMenuItem});
+            this.fileReToolStripMenuItem,
+            this.allFileRecordsToolStripMenuItem,
+            this.deletedFileRecordsToolStripMenuItem,
+            this.deletedFileToolStripMenuItem,
+            this.restoreFileToolStripMenuItem});
             this.testPowerForensicsToolStripMenuItem.Name = "testPowerForensicsToolStripMenuItem";
-            this.testPowerForensicsToolStripMenuItem.Size = new System.Drawing.Size(127, 23);
+            this.testPowerForensicsToolStripMenuItem.Size = new System.Drawing.Size(128, 23);
             this.testPowerForensicsToolStripMenuItem.Text = "Test Power Forensics";
             // 
             // fileReToolStripMenuItem
@@ -109,6 +109,40 @@
             this.fileReToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fileReToolStripMenuItem.Text = "Forensic File Record";
             this.fileReToolStripMenuItem.Click += new System.EventHandler(this.fileReToolStripMenuItem_Click);
+            // 
+            // allFileRecordsToolStripMenuItem
+            // 
+            this.allFileRecordsToolStripMenuItem.Name = "allFileRecordsToolStripMenuItem";
+            this.allFileRecordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.allFileRecordsToolStripMenuItem.Text = "All File Records";
+            // 
+            // deletedFileRecordsToolStripMenuItem
+            // 
+            this.deletedFileRecordsToolStripMenuItem.Name = "deletedFileRecordsToolStripMenuItem";
+            this.deletedFileRecordsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deletedFileRecordsToolStripMenuItem.Text = "Deleted File Records";
+            this.deletedFileRecordsToolStripMenuItem.Click += new System.EventHandler(this.deletedFileRecordsToolStripMenuItem_Click);
+            // 
+            // deletedFileToolStripMenuItem
+            // 
+            this.deletedFileToolStripMenuItem.Name = "deletedFileToolStripMenuItem";
+            this.deletedFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.deletedFileToolStripMenuItem.Text = "Deleted File";
+            this.deletedFileToolStripMenuItem.Click += new System.EventHandler(this.deletedFileToolStripMenuItem_Click);
+            // 
+            // panelMain
+            // 
+            this.panelMain.Location = new System.Drawing.Point(88, 36);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(610, 481);
+            this.panelMain.TabIndex = 1;
+            // 
+            // restoreFileToolStripMenuItem
+            // 
+            this.restoreFileToolStripMenuItem.Name = "restoreFileToolStripMenuItem";
+            this.restoreFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.restoreFileToolStripMenuItem.Text = "RestoreFile";
+            this.restoreFileToolStripMenuItem.Click += new System.EventHandler(this.restoreFileToolStripMenuItem_Click);
             // 
             // f_Main
             // 
@@ -138,6 +172,10 @@
         private System.Windows.Forms.ToolStripMenuItem testInitializeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testPowerForensicsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fileReToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem allFileRecordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deletedFileRecordsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deletedFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem restoreFileToolStripMenuItem;
     }
 }
 

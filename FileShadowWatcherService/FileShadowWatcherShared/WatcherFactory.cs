@@ -12,7 +12,7 @@ namespace FileShadowWatcherShared
         public OptionsFactory optionsFactory = new OptionsFactory();
         public bool IsStarted = false;
         public List<WatcherInstance> WatcherInstances = new List<WatcherInstance>();
-
+        public ForensicsFactory forensicsFactory = new ForensicsFactory();
 
         public void Initialize()
         {

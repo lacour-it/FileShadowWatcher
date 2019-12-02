@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FileShadowWatcherShared;
+using PowerForensics.FileSystems.Ntfs;
 
 namespace FileShadowWatcherGUI
 {
@@ -40,7 +41,24 @@ namespace FileShadowWatcherGUI
 
         private void fileReToolStripMenuItem_Click(object sender, EventArgs e)
         {
+        }
 
+        private void deletedFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FileRecord fileRecord = GUI.watcherFactory.forensicsFactory.GetDeletedInstance(@"E:\BriefPrivat.dotx");
+            if (!fileRecord.IsNull())
+                MessageBox.Show(fileRecord.FullName + " found at " + fileRecord.Directory);
+        }
+
+        private void deletedFileRecordsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            List<FileRecord> fileRecords = GUI.watcherFactory.forensicsFactory.GetDeletedInstances("E:");
+        }
+
+        private void restoreFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string answer = GUI.watcherFactory.forensicsFactory.RestoreDeletedFile(@"E:\BriefPrivat.dotx", @"C:\BriefPrivat.dotx");
+            MessageBox.Show(answer);
         }
     }
 }

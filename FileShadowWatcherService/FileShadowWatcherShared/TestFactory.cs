@@ -28,7 +28,7 @@ namespace FileShadowWatcherShared
 
         public static void TestForensic()
         {
-            PowerForensics.BootSectors.GuidPartitionTable guidPartitionTable = new GuidPartitionTable();
+            //PowerForensics.BootSectors.GuidPartitionTable guidPartitionTable = new GuidPartitionTable();
             //guidPartitionTable.
         }
     }
