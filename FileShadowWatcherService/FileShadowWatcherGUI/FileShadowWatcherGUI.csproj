@@ -34,12 +34,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="AlphaFS, Version=2.2.0.0, Culture=neutral, PublicKeyToken=4d31a58f7d7ad5c9, processorArchitecture=MSIL">
       <HintPath>..\packages\AlphaFS.2.2.6\lib\net452\AlphaFS.dll</HintPath>
     </Reference>
     <Reference Include="AlphaVSS.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=959d3993561034e3, processorArchitecture=MSIL">
       <HintPath>..\packages\AlphaVSS.2.0.0-alpha0050\lib\net45\AlphaVSS.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="PowerForensics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\FileShadowWatcherShared\PowerForensics.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -86,6 +93,7 @@
     <EmbeddedResource Include="u_WatcherOptions.resx">
       <DependentUpon>u_WatcherOptions.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FileShadowWatcherShared.EventExecutable.datasource" />
     <None Include="Properties\DataSources\FileShadowWatcherShared.OptionsList.datasource" />
