@@ -30,11 +30,13 @@
         {
             this.menuStripMain = new System.Windows.Forms.MenuStrip();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.panelMain = new System.Windows.Forms.Panel();
             this.toolStripTextBoxBackupPath = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripMenuItemBackupPath = new System.Windows.Forms.ToolStripMenuItem();
             this.testVSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testInitializeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panelMain = new System.Windows.Forms.Panel();
+            this.testPowerForensicsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileReToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +46,8 @@
             this.startToolStripMenuItem,
             this.toolStripTextBoxBackupPath,
             this.toolStripMenuItemBackupPath,
-            this.testVSSToolStripMenuItem});
+            this.testVSSToolStripMenuItem,
+            this.testPowerForensicsToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(800, 27);
@@ -56,13 +59,6 @@
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
             this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 23);
             this.startToolStripMenuItem.Text = "Start";
-            // 
-            // panelMain
-            // 
-            this.panelMain.Location = new System.Drawing.Point(88, 36);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(610, 481);
-            this.panelMain.TabIndex = 1;
             // 
             // toolStripTextBoxBackupPath
             // 
@@ -88,9 +84,31 @@
             // testInitializeToolStripMenuItem
             // 
             this.testInitializeToolStripMenuItem.Name = "testInitializeToolStripMenuItem";
-            this.testInitializeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.testInitializeToolStripMenuItem.Size = new System.Drawing.Size(140, 22);
             this.testInitializeToolStripMenuItem.Text = "Test Initialize";
             this.testInitializeToolStripMenuItem.Click += new System.EventHandler(this.testInitializeToolStripMenuItem_Click);
+            // 
+            // panelMain
+            // 
+            this.panelMain.Location = new System.Drawing.Point(88, 36);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(610, 481);
+            this.panelMain.TabIndex = 1;
+            // 
+            // testPowerForensicsToolStripMenuItem
+            // 
+            this.testPowerForensicsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileReToolStripMenuItem});
+            this.testPowerForensicsToolStripMenuItem.Name = "testPowerForensicsToolStripMenuItem";
+            this.testPowerForensicsToolStripMenuItem.Size = new System.Drawing.Size(127, 23);
+            this.testPowerForensicsToolStripMenuItem.Text = "Test Power Forensics";
+            // 
+            // fileReToolStripMenuItem
+            // 
+            this.fileReToolStripMenuItem.Name = "fileReToolStripMenuItem";
+            this.fileReToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fileReToolStripMenuItem.Text = "Forensic File Record";
+            this.fileReToolStripMenuItem.Click += new System.EventHandler(this.fileReToolStripMenuItem_Click);
             // 
             // f_Main
             // 
@@ -118,6 +136,8 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemBackupPath;
         private System.Windows.Forms.ToolStripMenuItem testVSSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem testInitializeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testPowerForensicsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileReToolStripMenuItem;
     }
 }
 

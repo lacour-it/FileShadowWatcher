@@ -37,5 +37,10 @@ namespace FileShadowWatcherGUI
         {
             TestFactory.InitializeVSS();
         }
+
+        private void fileReToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
