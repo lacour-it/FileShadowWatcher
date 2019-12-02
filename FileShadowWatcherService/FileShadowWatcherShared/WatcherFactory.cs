@@ -122,5 +122,6 @@ namespace FileShadowWatcherShared
             Options.EventExecutables.Add(eventExecutable);
             return Options;
         }
+
     }
 }
