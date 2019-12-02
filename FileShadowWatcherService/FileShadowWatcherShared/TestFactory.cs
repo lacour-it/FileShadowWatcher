@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Alphaleonis.Win32.Vss;
 using Alphaleonis.Win32.Filesystem;
+using PowerForensics.BootSectors;
 
 namespace FileShadowWatcherShared
 {
@@ -23,6 +24,12 @@ namespace FileShadowWatcherShared
                 File.Copy(snapPath, backupPath);
             }
 
+        }
+
+        public static void TestForensic()
+        {
+            PowerForensics.BootSectors.GuidPartitionTable guidPartitionTable = new GuidPartitionTable();
+            //guidPartitionTable.
         }
     }
 }
