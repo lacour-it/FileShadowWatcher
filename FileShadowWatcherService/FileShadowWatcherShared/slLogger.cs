@@ -46,6 +46,17 @@ namespace FileShadowWatcherShared
             return logFile;
         }
 
+        public static string ReadLogFile(string assembylName)
+        {
+            string logFile = "";
+            string logPath = Extensions.GetCommonApplicationDataFolder(true) + "\\" + assembylName + ".log";
+            if (File.Exists(logPath))
+            {
+                logFile = File.ReadAllText(logPath, Encoding.UTF8);
+            }
+            return logFile;
+        }
+
         /// <summary>
         /// Schreibt einen String als Zeile in die Log-Datei
         /// </summary>

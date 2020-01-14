@@ -13,6 +13,7 @@ namespace FileShadowWatcherShared
         {
             WatcherChangeType = WatcherChangeTypes.All;
         }
+        public string WatcherOptionGUID { get; set; }
         public WatcherChangeTypes WatcherChangeType { get; set; }
         public string ExecutablePath { get; set; }
         public string ExecutableArgs { get; set; }

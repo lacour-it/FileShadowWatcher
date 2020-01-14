@@ -10,5 +10,6 @@ namespace FileShadowWatcherShared
     {
         public string BackupRootPath { get; set; }
         public List<WatcherFolderOption> WatcherFolderOptions { get; set; }
+        public List<EventExecutable> EventExecutables { get; set; }
     }
 }

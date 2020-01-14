@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileShadowWatcherShared", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FileShadowWatcherGUI", "FileShadowWatcherGUI\FileShadowWatcherGUI.csproj", "{40C7CEB8-6813-4686-B8D4-B6D5494BA84F}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "FileShadowWatcherSetup", "FileShadowWatcherSetup\FileShadowWatcherSetup.vdproj", "{5916A189-D52E-45CD-B66A-4F6973E375B1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,8 @@ Global
 		{40C7CEB8-6813-4686-B8D4-B6D5494BA84F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40C7CEB8-6813-4686-B8D4-B6D5494BA84F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40C7CEB8-6813-4686-B8D4-B6D5494BA84F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5916A189-D52E-45CD-B66A-4F6973E375B1}.Debug|Any CPU.ActiveCfg = Debug
+		{5916A189-D52E-45CD-B66A-4F6973E375B1}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

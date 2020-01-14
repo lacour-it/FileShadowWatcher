@@ -8,6 +8,11 @@ namespace FileShadowWatcherShared
 {
     public class WatcherFolderOption
     {
+        public WatcherFolderOption()
+        {
+        }
+
+        public int InternalBufferSize { get; set; }
         /// <summary>Unique identifier of the combination File type/folder.
         /// Arbitrary GUID</summary>
         public string FolderGUID { get; set; }
@@ -24,7 +29,14 @@ namespace FileShadowWatcherShared
         public string FolderPath { get; set; }
         /// <summary>If TRUE: the folder and its subfolders will be monitored</summary>
         public bool FolderIncludeSub { get; set; }
-        public List<EventExecutable> EventExecutables { get; set; }
-
+        public string TrashFolder { get; set; }
+        //use SubFolderNames like Deleted or changed
+        public bool UseSubFolderEventNames { get; set; }
+        //use the ForensicFactory
+        public bool UseForensicsFactory { get; set; }
+        //use the actual Date as Folder
+        public bool UseDate { get; set; }
+        //How many days should the files be kept
+        public int DaysToStore { get; set; }
     }
 }

@@ -31,6 +31,7 @@
             // 
             // FileShadowWatcher
             // 
+            this.CanPauseAndContinue = true;
             this.ServiceName = "FileShadowWatcher";
 
         }

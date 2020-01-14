@@ -12,7 +12,8 @@ namespace FileShadowWatcherShared
         {
             OptionsPath = Extensions.GetCommonApplicationDataFolder(true) + "\\WatcherOptions.xml";
             Options = new OptionsList();
-            Options.WatcherFolderOptions = new List<WatcherFolderOption>(); 
+            Options.WatcherFolderOptions = new List<WatcherFolderOption>();
+            Options.EventExecutables = new List<EventExecutable>();
         }
         public bool LoadOptions()
         {

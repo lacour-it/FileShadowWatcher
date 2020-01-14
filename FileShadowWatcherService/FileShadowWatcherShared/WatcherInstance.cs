@@ -14,13 +14,18 @@ namespace FileShadowWatcherShared
         public FileSystemWatcher Watcher { get; set; }
         public string GUID { get; set; }
         public bool Listening { get; set; }
+
+        public WatcherFactory Factory { get; set; }
         //public SnapshotFactory snapshotFactory { get; set; }
 
-        private bool InitInstance()
+        private bool InitInstance(WatcherFactory watcherFactory)
         {
             try
             {
+                Factory = watcherFactory;
                 Watcher = new FileSystemWatcher();
+
+                Watcher.InternalBufferSize = Options.InternalBufferSize < 4096 ? 8192 : Options.InternalBufferSize;
 
                 Watcher.NotifyFilter = NotifyFilters.LastAccess | NotifyFilters.LastWrite
                     | NotifyFilters.FileName | NotifyFilters.DirectoryName;
@@ -41,9 +46,9 @@ namespace FileShadowWatcherShared
 
                 Watcher.Error += new ErrorEventHandler(OnError);
 
-                Watcher.EnableRaisingEvents = true;
+                Watcher.EnableRaisingEvents = Options.FolderEnabled;
 
-                Listening = true;
+                Listening = Options.FolderEnabled;
 
                 slLogger.WriteLogLine("FileShadowWatcher now listening on Directory " + Options.FolderPath);
             }
@@ -56,17 +61,17 @@ namespace FileShadowWatcherShared
         }
 
         //-1 = no Options 0=Everythings fine 1=Error
-        internal bool StartInstance()
+        internal bool StartInstance(WatcherFactory factory)
         {
-            return InitInstance();
+            return InitInstance(factory);
         }
 
-        internal bool StartInstance(WatcherFolderOption option, string backupPath)
+        internal bool StartInstance(WatcherFolderOption option, WatcherFactory factory)
         {
             Options = option;
             GUID = option.FolderGUID;
             //snapshotFactory = new SnapshotFactory(backupPath);
-            return InitInstance();
+            return InitInstance(factory);
         }
 
         internal void StopInstance()
@@ -76,10 +81,19 @@ namespace FileShadowWatcherShared
             slLogger.WriteLogLine("Watcher on " + Options.FolderPath + " shutdown.");
         }
 
+        internal void ContinueInstance()
+        {
+            Watcher.EnableRaisingEvents = true;
+            Listening = true;
+            slLogger.WriteLogLine("Watcher on " + Options.FolderPath + " continued.");
+        }
+
         private void OnChanged(object source, FileSystemEventArgs e)
         {
             WatcherChangeTypes wct = e.ChangeType;
-            slLogger.WriteLogLine(wct.ToString() + " Path: " + e.FullPath);
+            string FullPath = e.FullPath;
+            string Name = e.Name;
+            slLogger.WriteLogLine(wct.ToString() + " Path: " + FullPath);
         }
 
         private void OnCreated(object source, FileSystemEventArgs e)
@@ -90,6 +104,9 @@ namespace FileShadowWatcherShared
         private void OnDeleted(object source, FileSystemEventArgs e)
         {
             WatcherChangeTypes wct = e.ChangeType;
+            string FullPath = e.FullPath;
+            string Name = e.Name;
+            RestoreDeletedFile(wct, FullPath, Name);
             slLogger.WriteLogLine(wct.ToString() + " Path: " + e.FullPath);
             
             //snapshotFactory.BackupFromShadow(e.FullPath);
@@ -113,6 +130,54 @@ namespace FileShadowWatcherShared
                 //  that some of the file system events are being lost.
                 slLogger.WriteLogLine(("The file system watcher experienced an internal buffer overflow: " + e.GetException().Message));
             }
+        }
+
+        internal string GetEventFolderName(WatcherFolderOption watcherFolderOption, WatcherFactory.FolderNames folder)
+        {
+            return watcherFolderOption.TrashFolder + "\\" + folder.ToString();
+        }
+
+        internal bool RestoreDeletedFile(WatcherChangeTypes watcherChangeTypes, string FullPath, string Name)
+        {
+            try
+            {
+                if (Options.UseForensicsFactory)
+                {
+                    string FileName = Factory.GetTrashFileName(watcherChangeTypes, Options, Name);
+                    Factory.forensicsFactory.RestoreDeletedFile(FullPath, FileName);
+                    slLogger.WriteLogLine("Restored deleted file: " + FullPath + " to " + FileName);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                slLogger.WriteLogLine(ex, "Could not restore file: " + FullPath);
+                return false;
+            }
+            slLogger.WriteLogLine("ForensicsFactory not in use for file: " + FullPath);
+            return false;
+        }
+
+        internal bool CopyChangedFile(WatcherChangeTypes watcherChangeTypes, string FullPath, string Name)
+        {
+            try
+            {
+                if (Options.UseForensicsFactory)
+                {
+                    string FileName = Factory.GetTrashFileName(watcherChangeTypes, Options, Name);
+                    //Factory.forensicsFactory.RestoreDeletedFile(FullPath, FileName);
+                    slLogger.WriteLogLine("Copied changed file: " + FullPath + " to " + FileName);
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                slLogger.WriteLogLine(ex, "Could not copy file: " + FullPath);
+                return false;
+            }
+            slLogger.WriteLogLine("ForensicsFactory not in use for file: " + FullPath);
+            return false;
+
         }
     }
 }

@@ -29,5 +29,17 @@ namespace FileShadowWatcherService
         {
             watcherFactory.UnloadAll();
         }
+
+        protected override void OnPause()
+        {
+            base.OnPause();
+            watcherFactory.StopAllInstances();
+        }
+
+        protected override void OnContinue()
+        {
+            base.OnContinue();
+            watcherFactory.ContinueAllInstaces();
+        }
     }
 }

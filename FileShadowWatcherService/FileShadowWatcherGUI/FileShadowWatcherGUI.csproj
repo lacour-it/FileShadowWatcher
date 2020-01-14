@@ -8,15 +8,16 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>FileShadowWatcherGUI</RootNamespace>
     <AssemblyName>FileShadowWatcherGUI</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x64</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -25,6 +26,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -45,6 +47,14 @@
     <Reference Include="AlphaVSS.Common, Version=2.0.0.0, Culture=neutral, PublicKeyToken=959d3993561034e3, processorArchitecture=MSIL">
       <HintPath>..\packages\AlphaVSS.2.0.0-alpha0050\lib\net45\AlphaVSS.Common.dll</HintPath>
     </Reference>
+    <Reference Include="DevExpress.Data.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Printing.v19.2.Core, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.Utils.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraBars.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraEditors.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraGrid.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
+    <Reference Include="DevExpress.XtraLayout.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
+    <Reference Include="DevExpress.XtraPrinting.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="PowerForensics, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\FileShadowWatcherShared\PowerForensics.dll</HintPath>
@@ -63,24 +73,43 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="f_Main.cs">
+    <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="f_Main.Designer.cs">
-      <DependentUpon>f_Main.cs</DependentUpon>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogFile.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogFile.Designer.cs">
+      <DependentUpon>frmLogFile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="GUIFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="u_WatcherOptions.cs">
+    <Compile Include="x_Options.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="u_WatcherOptions.Designer.cs">
-      <DependentUpon>u_WatcherOptions.cs</DependentUpon>
+    <Compile Include="x_Options.Designer.cs">
+      <DependentUpon>x_Options.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="f_Main.resx">
-      <DependentUpon>f_Main.cs</DependentUpon>
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmLogFile.resx">
+      <DependentUpon>frmLogFile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -91,8 +120,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="u_WatcherOptions.resx">
-      <DependentUpon>u_WatcherOptions.cs</DependentUpon>
+    <EmbeddedResource Include="x_Options.resx">
+      <DependentUpon>x_Options.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
     <None Include="packages.config" />
@@ -113,12 +142,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\FileShadowWatcherShared\FileShadowWatcherShared.csproj">
-      <Project>{6a71f5e4-04fc-476c-9bf7-e5c04e45ab64}</Project>
-      <Name>FileShadowWatcherShared</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\Save_16x16.png" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +155,52 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Open2_16x16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FileShadowWatcherShared\FileShadowWatcherShared.csproj">
+      <Project>{6a71f5e4-04fc-476c-9bf7-e5c04e45ab64}</Project>
+      <Name>FileShadowWatcherShared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_addcircled.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_deletecircled.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gettingstarted.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_removecircled.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security_stop.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\appointmentendcontinuearrow.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\recurrence.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\showallfieldresults.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\copy.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="FileShadowWatcher.ico" />
+    <Content Include="Final_LIT-Logo_klein.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <None Include="Resources\about.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\AlphaVSS.Native.NetFx.2.0.0-alpha0050\build\net45\AlphaVSS.Native.NetFx.targets" Condition="Exists('..\packages\AlphaVSS.Native.NetFx.2.0.0-alpha0050\build\net45\AlphaVSS.Native.NetFx.targets')" />
